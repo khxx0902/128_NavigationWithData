@@ -23,6 +23,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.praktikum6.ui.theme.Praktikum6Theme
 
 @Composable
 fun HalamanHome(onNextButtonClicked: () -> Unit) {
@@ -72,5 +73,13 @@ fun HalamanHome(onNextButtonClicked: () -> Unit) {
                 }
             }
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewHome() {
+    Praktikum6Theme {
+        HalamanHome(onNextButtonClicked = {})
     }
 }
