@@ -1,4 +1,4 @@
-package com.example.praktikum8.layout
+package com.example.praktikum6
 
 
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -15,6 +15,10 @@ fun HalamanSatu(
     onSubmitButtonClicked: (MutableList<String>)-> Unit
 ) {
     var namaTxt by remember {
+        mutableStateOf("")
+    }
+
+    var alamatTxt by remember {
         mutableStateOf("")
     }
 }
