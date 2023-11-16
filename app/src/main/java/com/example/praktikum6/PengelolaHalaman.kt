@@ -79,56 +79,42 @@ fun EsJumboApp(
             modifier = Modifier.padding(innerPadding)
         )
         {
-            composable(route = PengelolaHalaman.Home.name){
-                HalamanHome (
+            composable(route = PengelolaHalaman.Home.name) {
+                HalamanHome(
                     onNextButtonClicked = {
-                        navController.navigate(PengelolaHalaman.Fomulir.name) })
+                        navController.navigate(PengelolaHalaman.Fomulir.name)
+                    })
             }
 
+            composable(route = PengelolaHalaman.Fomulir.name) {
+                HalamanSatu(onSubmitButtonClicked = {
+                    viewModel.setContact(it)
+                    navController.navigate(PengelolaHalaman.Rasa.name)
+                })
+            }
 
             composable(route = PengelolaHalaman.Rasa.name){
                 val context = LocalContext.current
-                HalamanSatu(
-                    pilihanRasa = flavors.map{ id ->
-                        context.resources.getString(id) },
+                HalamanDua(
+                    pilihanRasa = flavors.map{ id -> context.resources.getString(id)},
                     onSelectionChanged = {viewModel.setRasa(it)},
                     onnConfirmButtonClicked = {viewModel.setJumlah(it)},
                     onNextButtonClicked = {navController.navigate(PengelolaHalaman.Summary.name)},
-                    onCencelButtonClicked = {cencelOrderAndNavigateToHome(
-                        viewModel,
-                        navController
-                    )
-                    })
+                    onCencelButtonClicked = { /*TODO*/ })
             }
+
             composable(route = PengelolaHalaman.Summary.name){
-                HalamanDua(OrderUIState = uiState,
-                    onCencelButtonClicked = {
-                        cencelOrderAndNavigateToRasa(navController) },
-                )
+                HalamanTiga(
+                    OrderUIState = uiState,
+                    onCencelButtonClicked = { /*TODO*/ })
             }
+
+
+
+
+
         }
 
     }
 }
 
-private fun cencelOrderAndNavigateToHome(
-    viewModel: OrderViewModel,
-    navController: NavHostController
-){
-    viewModel.resetOrder()
-    navController.popBackStack(PengelolaHalaman.Home.name, inclusive = false )
-}
-
-private fun cancelOrderAndNavigateToContact(
-    viewModel: OrderViewModel,
-    navController: NavHostController
-){
-    viewModel.resetOrder()
-    navController.popBackStack(PengelolaHalaman.Fomulir.name, inclusive = false)
-}
-
-private fun cencelOrderAndNavigateToRasa(
-    navController: NavHostController
-){
-    navController.popBackStack(PengelolaHalaman.Rasa.name, inclusive = false)
-}

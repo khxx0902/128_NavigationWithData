@@ -17,11 +17,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import com.example.praktikum6.data.OrderUIState
 import com.example.praktikum6.komponen.FormatLabelHarga
 
 @Composable
-fun HalamanDua(
+fun HalamanTiga(
     OrderUIState: OrderUIState,
     onCencelButtonClicked: () -> Unit,
     modifier : Modifier = Modifier
@@ -34,6 +35,22 @@ fun HalamanDua(
         modifier = modifier,
         verticalArrangement = Arrangement.SpaceBetween
     ) {
+        Text(text = stringResource(id = R.string.nama))
+        Text(text = OrderUIState.nama)
+        Divider()
+        Spacer(modifier = Modifier.padding(16.dp))
+
+
+        Text(text = stringResource(id = R.string.alamat))
+        Text(text = OrderUIState.alamat)
+        Divider()
+        Spacer(modifier = Modifier.padding(16.dp))
+
+
+        Text(text = stringResource(id = R.string.Tlp))
+        Text(text = OrderUIState.tlp)
+        Divider()
+        Spacer(modifier = Modifier.padding(8.dp))
         Column (
             modifier = Modifier.padding(dimensionResource(R.dimen.padding_medium)),
             verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small))

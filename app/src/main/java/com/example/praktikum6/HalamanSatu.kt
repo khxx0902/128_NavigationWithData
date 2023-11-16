@@ -18,6 +18,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 
@@ -52,9 +53,15 @@ fun HalamanSatu(
         )
 
         OutlinedTextField(
-            value = namaTxt,
-            onValueChange = {namaTxt = it},
-            label = { Text(text = stringResource(id = R.string.nama))}
+            value = alamatTxt,
+            onValueChange = {alamatTxt = it},
+            label = { Text(text = stringResource(id = R.string.alamat)) }
+        )
+
+        OutlinedTextField(
+            value = tlpnTxt,
+            onValueChange = {tlpnTxt = it},
+            label = { Text(text = stringResource(id = R.string.Tlp)) }
         )
 
         Spacer(modifier = Modifier.height(15.dp))
@@ -64,4 +71,10 @@ fun HalamanSatu(
 
         }
     }
+}
+
+@Preview
+@Composable
+fun HalamanSatuPreview(){
+    HalamanSatu(onSubmitButtonClicked = {})
 }
