@@ -21,4 +21,9 @@ fun HalamanSatu(
     var alamatTxt by remember {
         mutableStateOf("")
     }
+
+    var tlpnTxt by remember {
+        mutableStateOf("")
+    }
+    var listData: MutableList<String> = mutableListOf(namaTxt,alamatTxt,tlpnTxt)
 }
