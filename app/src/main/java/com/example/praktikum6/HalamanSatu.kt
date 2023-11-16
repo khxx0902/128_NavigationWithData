@@ -48,13 +48,13 @@ fun HalamanSatu(
         OutlinedTextField(
             value = namaTxt,
             onValueChange = {namaTxt = it},
-            label = { Text(text = stringResource(id = R.string.nama)) }
+            label = { Text(text = stringResource(id = R.string.nama))}
         )
 
         OutlinedTextField(
             value = namaTxt,
             onValueChange = {namaTxt = it},
-            label = { Text(text = stringResource(id = R.string.nama)) }
+            label = { Text(text = stringResource(id = R.string.nama))}
         )
 
         Spacer(modifier = Modifier.height(15.dp))

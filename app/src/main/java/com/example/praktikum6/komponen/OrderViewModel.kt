@@ -13,6 +13,16 @@ class OrderViewModel : ViewModel() {
     private val _stateUI = MutableStateFlow(OrderUIState())
     val stateUI: StateFlow<OrderUIState> = _stateUI.asStateFlow()
 
+    fun setContact(List: MutableList<String>){
+        _stateUI.update {
+                stateSaatIni -> stateSaatIni.copy(
+            nama = List[0],
+            alamat = List[1],
+            tlp = List[2]
+        )
+        }
+    }
+
     fun setJumlah(jmlEsJumbo:Int){
         _stateUI.update { stateSaatIni ->
             stateSaatIni.copy(

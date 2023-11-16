@@ -30,6 +30,7 @@ import com.example.praktikum6.komponen.OrderViewModel
 
 enum class PengelolaHalaman {
     Home,
+    Fomulir,
     Rasa,
     Summary,
 }
@@ -81,8 +82,10 @@ fun EsJumboApp(
             composable(route = PengelolaHalaman.Home.name){
                 HalamanHome (
                     onNextButtonClicked = {
-                        navController.navigate(PengelolaHalaman.Rasa.name) })
+                        navController.navigate(PengelolaHalaman.Fomulir.name) })
             }
+
+
             composable(route = PengelolaHalaman.Rasa.name){
                 val context = LocalContext.current
                 HalamanSatu(
@@ -114,6 +117,14 @@ private fun cencelOrderAndNavigateToHome(
 ){
     viewModel.resetOrder()
     navController.popBackStack(PengelolaHalaman.Home.name, inclusive = false )
+}
+
+private fun cancelOrderAndNavigateToContact(
+    viewModel: OrderViewModel,
+    navController: NavHostController
+){
+    viewModel.resetOrder()
+    navController.popBackStack(PengelolaHalaman.Fomulir.name, inclusive = false)
 }
 
 private fun cencelOrderAndNavigateToRasa(
